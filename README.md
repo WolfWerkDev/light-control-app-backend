@@ -69,5 +69,5 @@ Asegúrate de tener instalado en tu sistema:
 Este proyecto está bajo la Licencia MIT. Puedes usarlo y modificarlo libremente.
 
 ---
-**Autor:** Tu Nombre | [LinkedIn](www.linkedin.com/in/sammy-alejandro-pulido-huertas-554167260) | [GitHub](https://github.com/SammAPH)
+**Autor:** Samm& | [LinkedIn](www.linkedin.com/in/sammy-alejandro-pulido-huertas-554167260) | [GitHub](https://github.com/SammAPH)
 
