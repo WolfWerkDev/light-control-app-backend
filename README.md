@@ -1,4 +1,4 @@
-![Spring Boot](https://spring.io/images/spring-logo-2022-dark.svg)
+![Spring Boot]([https://spring.io/images/spring-logo-2022-dark.svg](https://spring.io/img/logos/spring-initializr.svg))
 
 # Light Control App - Backend
 
