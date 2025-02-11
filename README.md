@@ -12,14 +12,12 @@ Este es el backend de **Light Control App**, desarrollado con **Spring Boot**. P
 - **JWT (JSON Web Token)**
 - **PostgreSQL**
 - **JPA/Hibernate**
-- **Docker**
 
 ## 📌 Requisitos Previos
 
 Asegúrate de tener instalado en tu sistema:
 - [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 - [Maven](https://maven.apache.org/)
-- [Docker](https://www.docker.com/)
 - PostgreSQL configurado con una base de datos para la aplicación
 
 ## ⚙️ Configuración del Proyecto
@@ -66,21 +64,10 @@ Asegúrate de tener instalado en tu sistema:
 - `GET /users/{id}` → Obtener un usuario por ID
 - `DELETE /users/{id}` → Eliminar un usuario
 
-## 🐳 Uso con Docker
-
-Para ejecutar la aplicación con Docker, usa:
-```sh
-mvn clean package -DskipTests
-```
-Luego, construye y ejecuta el contenedor:
-```sh
-docker build -t lightcontrol-backend .
-docker run -p 8080:8080 lightcontrol-backend
-```
 
 ## 📜 Licencia
 Este proyecto está bajo la Licencia MIT. Puedes usarlo y modificarlo libremente.
 
 ---
-**Autor:** Tu Nombre | [LinkedIn](https://linkedin.com/in/tuperfil) | [GitHub](https://github.com/tu-usuario)
+**Autor:** Tu Nombre | [LinkedIn](www.linkedin.com/in/sammy-alejandro-pulido-huertas-554167260) | [GitHub](https://github.com/SammAPH)
 
