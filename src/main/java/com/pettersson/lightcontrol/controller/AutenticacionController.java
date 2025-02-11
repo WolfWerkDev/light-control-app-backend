@@ -1,7 +1,6 @@
 package com.pettersson.lightcontrol.controller;
 
-import com.pettersson.lightcontrol.domain.usuario.DatosAutenticacionUsuario;
-import com.pettersson.lightcontrol.domain.usuario.Usuario;
+import com.pettersson.lightcontrol.domain.usuario.*;
 import com.pettersson.lightcontrol.infra.security.DatosJWTToken;
 import com.pettersson.lightcontrol.infra.security.TokenService;
 import jakarta.validation.Valid;
@@ -23,13 +22,16 @@ public class AutenticacionController {
     private AuthenticationManager authenticationManager;
     @Autowired
     private TokenService tokenService;
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     @PostMapping
     public ResponseEntity autenticarUsuario(@RequestBody @Valid DatosAutenticacionUsuario datosAutenticacionUsuario){
         Authentication authToken = new UsernamePasswordAuthenticationToken(datosAutenticacionUsuario.email(),
                 datosAutenticacionUsuario.password());
         var usuarioAutenticado = authenticationManager.authenticate(authToken);
-        var jwtToken = tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
-        return ResponseEntity.ok(new DatosJWTToken(jwtToken));
+        var usuario = (Usuario) usuarioAutenticado.getPrincipal();
+        var jwtToken = tokenService.generarToken(usuario);
+        return ResponseEntity.ok(new DatosRespuestaLogin(jwtToken, usuario.getId(), usuario.getNombres(), usuario.getApellidos(), usuario.getEmail()));
     }
 }

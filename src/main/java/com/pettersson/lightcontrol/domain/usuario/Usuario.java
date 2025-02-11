@@ -1,5 +1,7 @@
 package com.pettersson.lightcontrol.domain.usuario;
 
+import com.pettersson.lightcontrol.domain.luz.Luz;
+import com.pettersson.lightcontrol.domain.producto.Producto;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,6 +25,10 @@ public class Usuario implements UserDetails {
     private String email;
     private String password;
     private String login;
+
+    // Relación con productos
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Producto> productos;
 
     //Constructors
     public Usuario(){}

@@ -23,12 +23,14 @@ public class TokenService {
     public String generarToken(Usuario usuario){
         try {
             Algorithm algorithm = Algorithm.HMAC256(apiSecret);
+            System.out.println("Clave secreta utilizada: " + apiSecret);
             return JWT.create()
                     .withIssuer("pettersson")
                     .withSubject(usuario.getLogin())
                     .withClaim("id", usuario.getId())
                     .withExpiresAt(generarFechaExpiracion())
                     .sign(algorithm);
+
         } catch (JWTCreationException exception){
             throw new RuntimeException();
             // Invalid Signing configuration / Couldn't convert Claims.
@@ -41,6 +43,7 @@ public class TokenService {
         }
         try {
             Algorithm algorithm = Algorithm.HMAC256(apiSecret);
+            System.out.println("Clave secreta utilizada para subject: " + apiSecret);
             JWTVerifier verifier = JWT.require(algorithm)
                     .withIssuer("pettersson")
                     .build();
