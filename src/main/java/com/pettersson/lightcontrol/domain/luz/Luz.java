@@ -1,5 +1,6 @@
 package com.pettersson.lightcontrol.domain.luz;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pettersson.lightcontrol.domain.producto.Producto;
 import com.pettersson.lightcontrol.domain.usuario.Usuario;
 import jakarta.persistence.*;
@@ -17,6 +18,7 @@ public class Luz {
 
     @ManyToOne
     @JoinColumn(name = "id_modulo", nullable = true)
+    @JsonIgnore
     private Producto producto;
 
     @Column(name = "numero_luz")

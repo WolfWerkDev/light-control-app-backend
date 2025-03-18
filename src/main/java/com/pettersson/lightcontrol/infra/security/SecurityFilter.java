@@ -26,7 +26,7 @@ public class SecurityFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         // Permitir acceso sin autenticación solo a /login y /register
-        if (request.getRequestURI().equals("/login") || request.getRequestURI().equals("/register")) {
+        if (request.getRequestURI().equals("/login") || request.getRequestURI().equals("/register") || request.getRequestURI().equals("/product/control/{codigoValidacion}")) {
             filterChain.doFilter(request, response);
             return;
         }

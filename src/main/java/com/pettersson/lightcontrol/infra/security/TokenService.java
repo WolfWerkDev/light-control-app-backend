@@ -58,4 +58,12 @@ public class TokenService {
     private Instant generarFechaExpiracion(){
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-05:00"));
     }
+    public boolean isValid(String token) {
+        try {
+            getSubject(token); // Intenta obtener el subject (si falla, el token es inválido)
+            return true;
+        } catch (RuntimeException e) {
+            return false;
+        }
+    }
 }
