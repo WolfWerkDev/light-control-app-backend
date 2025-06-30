@@ -1,25 +1,16 @@
 package com.pettersson.lightcontrol.controller;
-
-import com.pettersson.lightcontrol.domain.luz.DatosEstadoLuces;
-import com.pettersson.lightcontrol.domain.luz.Luz;
 import com.pettersson.lightcontrol.domain.producto.*;
-import com.pettersson.lightcontrol.domain.usuario.DatosRespuestaUsuario;
-import com.pettersson.lightcontrol.domain.usuario.Usuario;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Flux;
 
 import java.net.URI;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/product")

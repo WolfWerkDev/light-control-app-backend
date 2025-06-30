@@ -28,7 +28,7 @@ public class SecurityConfigurations {
         http.csrf(csrf -> csrf.disable())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authz -> {
-                    authz.requestMatchers(HttpMethod.POST, "/login").permitAll();
+                    authz.requestMatchers("/login").permitAll();
                     authz.requestMatchers(HttpMethod.POST, "/register").permitAll();
                     authz.requestMatchers(HttpMethod.GET, "/product/control/{codigoValidacion}").permitAll();
                     authz.requestMatchers(HttpMethod.GET, "/control/{id}/sse").permitAll();

@@ -1,7 +1,6 @@
 package com.pettersson.lightcontrol.controller;
 
 import com.pettersson.lightcontrol.domain.usuario.*;
-import com.pettersson.lightcontrol.infra.security.DatosJWTToken;
 import com.pettersson.lightcontrol.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
