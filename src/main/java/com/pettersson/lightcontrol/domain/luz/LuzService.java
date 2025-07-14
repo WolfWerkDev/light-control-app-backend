@@ -37,7 +37,7 @@ public class LuzService {
 
         // Emitir evento cuando haya un cambio en la base de datos
         luzSink.tryEmitNext(obtenerEstadoLuces(luz.getProducto().getId()));
-        System.out.println("Emitiendo evento");
+        //System.out.println("Emitiendo evento");
 
         return luz;
     }

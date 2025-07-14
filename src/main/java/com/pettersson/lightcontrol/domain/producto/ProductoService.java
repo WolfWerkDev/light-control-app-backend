@@ -50,7 +50,7 @@ public class ProductoService {
         Producto productoGuardado = productoRepository.save(producto);
 
         registroInfoLuces(productoGuardado);
-        System.out.println("producto registrado con éxito");
+        //System.out.println("producto registrado con éxito");
         return productoGuardado;
     }
 
@@ -72,12 +72,12 @@ public class ProductoService {
         producto.setUsuario(usuario);
 
         // Guardar el producto actualizado en la base de datos
-        System.out.println("producto asignado al usuario: " + usuario);
+        //System.out.println("producto asignado al usuario: " + usuario);
         return productoRepository.save(producto);
 
     }
     public void registroInfoLuces(Producto producto){
-        System.out.println("Registrando luces");
+        //System.out.println("Registrando luces");
         int capacidad = producto.getCapacidadModulo();
         for (int i = 0; i < capacidad; i++) {
             Luz luz = new Luz();
@@ -149,21 +149,22 @@ public class ProductoService {
 
     @Transactional
     public Producto actualizarInfoDeProducto(Long id, DatosActualizarNombreProducto datos){
-        System.out.println("Nombre recibido: " + datos.nombreModulo());
+        //System.out.println("Nombre recibido: " + datos.nombreModulo());
         Producto producto = productoRepository.findById(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
-        System.out.println("Luces in: " + datos.luces().toString());
+        //System.out.println("Luces in: " + datos.luces().toString());
         List<Luz> luces = datos.luces();
         if (luces != null) {
             for (Luz luz : luces) {
                 Long idLuz = luz.getId();
                 String nombreLuz = luz.getNombreLuz();
-                System.out.println("ID: " + idLuz + ", Nombre: " + nombreLuz);
+                //System.out.println("ID: " + idLuz + ", Nombre: " + nombreLuz);
                 Luz luzActual = luzRepository.findById(idLuz).orElseThrow(() -> new RuntimeException("luz no encontrada"));
                 luzActual.setNombreLuz(nombreLuz);
                 luzRepository.save(luzActual);
             }
         } else {
-            System.out.println("No hay luces registradas.");
+           // System.out.println("No hay luces registradas.");
+            throw new RuntimeException("Error al actualizar la información");
         }
         producto.setNombreModulo(datos.nombreModulo());
         return productoRepository.save(producto);

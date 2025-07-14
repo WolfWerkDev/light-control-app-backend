@@ -23,7 +23,7 @@ public class TokenService {
     public String generarToken(Usuario usuario){
         try {
             Algorithm algorithm = Algorithm.HMAC256(apiSecret);
-            System.out.println("Clave secreta utilizada: " + apiSecret);
+            // System.out.println("Clave secreta utilizada: " + apiSecret);
             return JWT.create()
                     .withIssuer("pettersson")
                     .withSubject(usuario.getLogin())
@@ -43,14 +43,14 @@ public class TokenService {
         }
         try {
             Algorithm algorithm = Algorithm.HMAC256(apiSecret);
-            System.out.println("Clave secreta utilizada para subject: " + apiSecret);
+            // System.out.println("Clave secreta utilizada para subject: " + apiSecret);
             JWTVerifier verifier = JWT.require(algorithm)
                     .withIssuer("pettersson")
                     .build();
             return verifier.verify(token).getSubject();
         } catch (JWTVerificationException exception) {
-            System.out.println("Error al verificar el token: " + exception.getMessage());
-            System.out.println("Token recibido: " + token);
+            // System.out.println("Error al verificar el token: " + exception.getMessage());
+            // System.out.println("Token recibido: " + token);
             throw new RuntimeException("El token no es válido", exception);
         }
     }
