@@ -48,7 +48,7 @@ public class SecurityConfigurations {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "http://192.168.2.107:4200"));
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "http://192.168.2.107:4200", "https://light-control-app-i3fb.onrender.com"));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
         corsConfiguration.setAllowCredentials(true);
